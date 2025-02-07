@@ -33,19 +33,14 @@
   }
 
   .textBox {
+    transform: translate(-50%, -50%);
     text-align: center;
     color: white;
     z-index: 1;            /* Asegura que el texto esté sobre el overlay */
   }
-
-  .textBox h1 {
-    font-size: 3.5rem;
-    margin-bottom: 1rem;
-  }
   
   
   .title {
-    transform: translate(-50%, -50%);
     font-size: 3.5rem;
     margin-bottom: 1rem;
     justify-content: center;
@@ -55,6 +50,7 @@
   }
   
   .paragraph {
+    text-align: start;
     font-size: 1.5rem;
     opacity: 0.9;
     z-index: -999
