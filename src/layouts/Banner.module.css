@@ -1,32 +1,61 @@
 
 .hero_banner {
-    height: 100vh;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('@/assets/bg-img/backimg.jpg');
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-  }
+  width: 100%;           /* Ocupa todo el ancho disponible */
+  height: 100vh;         /* Altura completa de la pantalla */
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+                    url('../assets/bg-img/backimg.jpg');
+  background-size: cover; /* Cubre todo el contenedor sin deformar */
+  background-position: center;
+  background-repeat: no-repeat; /* Evita que se repita la imagen */
+  position: relative;     /* Necesario para posicionar el overlay */
+}
+
+  
+.overlay {
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
   img {
     max-width: 100%;
-    height: auto;
+    height: 100vh;
+    object-fit: fill;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
     margin: 0 auto;
+    z-index: -1000;
   }
-  
-  .overlay {
+
+  .textBox {
     text-align: center;
-    padding: 2rem;
+    color: white;
+    z-index: 1;            /* Asegura que el texto esté sobre el overlay */
   }
-  
-  .title {
+
+  .textBox h1 {
     font-size: 3.5rem;
     margin-bottom: 1rem;
   }
   
-  .subtitle {
+  
+  .title {
+    transform: translate(-50%, -50%);
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    justify-content: center;
+    text-align: center;
+    z-index: -999;
+    opacity: 0.9
+  }
+  
+  .paragraph {
     font-size: 1.5rem;
     opacity: 0.9;
+    z-index: -999
   }
