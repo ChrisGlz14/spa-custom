@@ -2,15 +2,28 @@
 .hero_banner {
   width: 100%;           /* Ocupa todo el ancho disponible */
   height: 100vh;         /* Altura completa de la pantalla */
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
-                    url('../assets/bg-img/backimg.jpg');
-  background-size: cover; /* Cubre todo el contenedor sin deformar */
-  background-position: center;
-  background-repeat: no-repeat; /* Evita que se repita la imagen */
   position: relative;     /* Necesario para posicionar el overlay */
+  overflow: hidden;
 }
 
-  
+.hero_banner::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+                  url('../assets/bg-img/backimg.jpg');
+  background-size: cover;
+  background-position: center;
+  opacity: 0; /* Inicia transparente */
+  animation: zoomFade 1.5s ease-in forwards;
+  z-index: -1;
+}
+
+
+
 .overlay {
   width: 100%;
   height: 100%;
@@ -21,6 +34,7 @@
 }
 
   img {
+    transition: ease-in 0.3s ;
     max-width: 100%;
     height: 100vh;
     object-fit: fill;
@@ -37,9 +51,10 @@
     text-align: center;
     color: white;
     z-index: 1;            /* Asegura que el texto esté sobre el overlay */
+    animation: bottonToTop 1.5s ease-in forwards;
   }
-  
-  
+
+
   .title {
     font-size: 3.5rem;
     margin-bottom: 1rem;
@@ -48,10 +63,38 @@
     z-index: -999;
     opacity: 0.9
   }
-  
+
   .paragraph {
     text-align: start;
     font-size: 1.5rem;
     opacity: 0.9;
     z-index: -999
+  }
+
+  /* Animaciones */
+  @keyframes fadeIn {
+    from{opacity: 0;}
+    to {opacity: 1;}
+  }
+
+  @keyframes bottonToTop {
+    0%{
+      opacity: 0 ;
+      transform: translateY(-50%);
+    }
+    100%{
+      opacity: 1;
+      transform: translateY(-50);
+    }
+  }
+
+  @keyframes zoomFade {
+    0% {
+      opacity: 0;
+      transform: scale(1.1);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
   }

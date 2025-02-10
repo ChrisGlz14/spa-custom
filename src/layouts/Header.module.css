@@ -35,5 +35,6 @@
   /* Estilo activo para la ruta actual */
   .nav_link_active {
     color: #007bff;
+    
     border-bottom: 2px solid #007bff;
   }
