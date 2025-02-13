@@ -40,7 +40,7 @@ if (loading) {
             {
                 categories.map((category) => (
                     <div className={styles.grid_item} key={category.id}>
-                        <NavLink to={`/category/${category.id}`}>{category.name}</NavLink>
+                        <NavLink className={styles.nav_link} to={`/category/${category.id}`}>{category.name}</NavLink>
                         <img className={styles.img_category} src={category.image} alt={category.name} />
                     </div>
                 ))

@@ -50,7 +50,11 @@ export const getCategories = async () :Promise<CategoryResponse[]> => {
 
         const data: CategoryResponse[] = await res.json();
 
-        return data;
+        if(data.length > 0){
+            return data.slice(0, 3);
+        } else {
+            return [];
+        }
 
 
     } catch (error) {
