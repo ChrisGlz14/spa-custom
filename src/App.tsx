@@ -1,13 +1,14 @@
-import { BrowserRouter } from "react-router-dom";
-import { BannerImg } from "./layouts/BannerImg";
-import Header from './layouts/Header'
-import ProductsSection from "./layouts/ProductsSection";
+import { BrowserRouter, Route, Routes} from "react-router-dom";
+import NotFound from "./pages/NotFound/NotFound";
+import { PresentWeb } from "./layouts/PresentWeb";
 function App() {
   return (
+    
     <BrowserRouter>
-      <Header /> 
-      <BannerImg />
-      <ProductsSection />
+    <Routes>
+      <Route path="/" element={<PresentWeb />}/>
+      <Route path="*" element={<NotFound/>}/>
+    </Routes>
     </BrowserRouter>
   )
 }

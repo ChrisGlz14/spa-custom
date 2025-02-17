@@ -10,6 +10,8 @@ const ProductsSection = () => {
 const [categories, setCategories] = useState<CategoryResponse[]>([]);
 const [loading, setloading] = useState(true);
 const [error, setError] = useState<string | null> (null);
+
+
 useEffect(()=> {
     const fetchCategories = async() => {
         try{
@@ -40,8 +42,9 @@ if (loading) {
             {
                 categories.map((category) => (
                     <div className={styles.grid_item} key={category.id}>
-                        <NavLink className={styles.nav_link} to={`/category/${category.id}`}>{category.name}</NavLink>
-                        <img className={styles.img_category} src={category.image} alt={category.name} />
+                        <NavLink className={styles.nav_link} to={`/category/${category.id}`}>{category.name}
+                        <img className={styles.img_category} src={category.image} alt={category.name}/>
+                        </NavLink> 
                     </div>
                 ))
             }
